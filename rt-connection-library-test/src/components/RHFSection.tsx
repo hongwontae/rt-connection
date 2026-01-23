@@ -2,11 +2,13 @@ import {useForm} from 'react-hook-form';
 
 function RHFSection(){
 
-    const {register, handleSubmit,formState} = useForm();
+    const {register, handleSubmit,formState : {errors}} = useForm();
 
     function submitHandler(data : any){
         console.log(data);
     }
+
+    console.log(errors)
 
     return(
         <>
