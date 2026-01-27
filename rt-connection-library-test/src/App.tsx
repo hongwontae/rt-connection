@@ -14,6 +14,7 @@ const positions = ["ST", "CM", "LW"];
 function App() {
   const [players, setPlayers] = useState<Player[]>([
     { id: "player-1", position: "ST" },
+    {id : "player-2", position : "CM"}
   ]);
 
   const handleDragEnd = (event: DragEndEvent) => {
