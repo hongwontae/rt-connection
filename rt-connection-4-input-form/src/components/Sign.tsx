@@ -16,10 +16,7 @@ function Sign() {
     password: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState<ErrorMessageType>({
-    emailErrorMessage: null,
-    passwordErrorMessage: null,
-  });
+  const [errorMessage, setErrorMessage] = useState<Partial<Record<keyof UserType, string>>>({});
 
   function changeHalder(
     e: React.ChangeEvent<HTMLInputElement>,
@@ -34,11 +31,11 @@ function Sign() {
 
   function blurHandler(
     e: React.ChangeEvent<HTMLInputElement>,
-    identifier: "email" | "password",
+    key : keyof UserType,
   ) {
     const inputValue = e.currentTarget.value;
 
-    if (identifier === "email") {
+    if (key === "email") {
       const status = inputValue.includes("@") && inputValue.length !== 0;
       status
         ? setErrorMessage(prev=>{
@@ -53,7 +50,7 @@ function Sign() {
           });
     }
 
-    if (identifier === "password") {
+    if (key === "password") {
       const status = inputValue.length !== 0;
       status
         ? setErrorMessage((prev)=>{
@@ -75,8 +72,8 @@ function Sign() {
   return (
     <>
       <form onSubmit={(e)=>submitHandler(e)}>
-        <div className="font-bold text-red-500">{errorMessage.emailErrorMessage}</div>
-        <div className="font-bold text-red-500">{errorMessage.passwordErrorMessage}</div>
+        <div className="font-bold text-red-500">{errorMessage.email}</div>
+        <div className="font-bold text-red-500">{errorMessage.password}</div>
         <div className="flex flex-row gap-8 mb-10">
           <div className="flex flex-row gap-2">
             <label htmlFor="email">Email</label>
