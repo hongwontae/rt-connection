@@ -1,11 +1,12 @@
 import "./App.css";
 import Sign from "./components/Sign";
+import TestUserForm from "./components/TestUserForm";
 
 
 function App() {
   return(
     <>
-      <Sign></Sign>
+      <TestUserForm></TestUserForm>
     </>
   )
 }

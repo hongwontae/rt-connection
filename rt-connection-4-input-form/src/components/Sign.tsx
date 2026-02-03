@@ -5,10 +5,6 @@ type UserType = {
   password: string;
 };
 
-type ErrorMessageType = {
-  emailErrorMessage: string | null;
-  passwordErrorMessage: string | null;
-};
 
 function Sign() {
   const [userInfo, setUserInfo] = useState<UserType>({
