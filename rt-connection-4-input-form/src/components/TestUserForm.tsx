@@ -19,9 +19,7 @@ function TestUserForm() {
       errors.push("password length at least 5");
     }
 
-    return {
-      error: errors.length > 0 ? errors : null,
-    };
+     return errors.length > 0 ? {error : errors} : {error : null};
   }
 
   const [formState, formAction, isPending] = useActionState<State, FormData>(
